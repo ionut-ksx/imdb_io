@@ -63,11 +63,12 @@ CONCURRENT_REQUESTS = 1
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "imdb_io.pipelines.ImdbIoPipeline": 2,
+    "imdb_io.pipelines.ImdbIoPipeline": 1000,
+    "imdb_io.pipelines.SqlitePipeline": 2222,
 }
 
-FEED_FORMAT = "json"
-FEED_URI = "movies.json"
+# FEED_FORMAT = "json"
+# FEED_URI = "movies.json"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
