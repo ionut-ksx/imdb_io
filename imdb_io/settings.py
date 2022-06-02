@@ -10,17 +10,18 @@
 BOT_NAME = "imdb_io"
 
 SPIDER_MODULES = ["imdb_io.spiders"]
-NEWSPIDER_MODULE = "imdb_io.spiders"
+# NEWSPIDER_MODULE = "imdb_io.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'imdb_io (+http://www.yourdomain.com)'
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 1
+CONCURRENT_REQUESTS = 30
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -65,7 +66,10 @@ CONCURRENT_REQUESTS = 1
 ITEM_PIPELINES = {
     "imdb_io.pipelines.ImdbIoPipeline": 1000,
     "imdb_io.pipelines.SqlitePipeline": 2222,
+    "scrapy.pipelines.images.ImagesPipeline": 999,
 }
+
+IMAGES_STORE = "images"
 
 # FEED_FORMAT = "json"
 # FEED_URI = "movies.json"
